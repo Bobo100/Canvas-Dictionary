@@ -108,7 +108,10 @@ context.arcTo(x1, y1, x2, y2, radius); // 繪製圓弧
 
             </div>
 
-            <Link href="/">回到上一頁</Link>
+            <div className="link_container">
+                <Link href="/">回到上一頁</Link>
+                <Link href="/CanvasImport">你可能會犯的錯</Link>
+            </div>
         </Layout>
     )
 }
