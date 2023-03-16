@@ -55,6 +55,10 @@ a {
     padding: 10px;
 }
 
+.link_container {
+    display: flex;
+}
+
 .link_container > a {
     margin: 10px;
 }
@@ -77,6 +81,14 @@ h2 {
 
 h3 {
     font-size: 1.5rem;
+    color: #61dafb;
+    background-color: #0f1114;
+
+    padding: 10px;
+}
+
+h4 {
+    font-size: 1.25rem;
     color: #61dafb;
     background-color: #0f1114;
 

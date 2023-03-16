@@ -11,6 +11,7 @@ import { CanvasCircleFill } from "../components/CanvasStyles/CanvasCircleFill";
 import { CanvasCircleFill2 } from "../components/CanvasStyles/CanvasCircleFill2";
 import { CanvasRect } from "../components/CanvasStyles/CanvasRect";
 import { CanvasFillRect } from "../components/CanvasStyles/CanvasFillRect";
+import { CanvasTriangle } from "../components/CanvasStyles/CanvasTriangle";
 
 export function CanvasStyles() {
     return (
@@ -70,13 +71,13 @@ context.arcTo(x1, y1, x2, y2, radius); // 繪製圓弧
                 <p>Canvas提供了兩個方法來繪製線條，分別是moveTo()和lineTo()</p>
 
                 <p>moveTo()方法是用來移動畫筆的位置，而lineTo()方法是用來繪製線條</p>
-                <p>moveTo()方法的參數如下</p>
+                <h4>moveTo()方法的參數如下</h4>
                 <Prism language="typescript" style={vscDarkPlus}>
                     {`context.moveTo(x, y); // 移動到(x, y)的位置
 `}
                 </Prism>
 
-                <p>lineTo()方法的參數如下</p>
+                <h4>lineTo()方法的參數如下</h4>
                 <Prism language="typescript" style={vscDarkPlus}>
                     {`context.lineTo(x, y); // 繪製一條線到(x, y)的位置
 `}
@@ -93,7 +94,7 @@ context.arcTo(x1, y1, x2, y2, radius); // 繪製圓弧
                 <h3>繪製方形</h3>
                 <p>Canvas提供了兩個方法來繪製方形，分別是rect()和fillRect()</p>
                 <p>rect()方法是用來繪製方形的邊框，而fillRect()方法是用來繪製方形的內容</p>
-                <p>rect()方法的參數如下</p>
+                <h4>rect()方法的參數如下</h4>
                 <Prism language="typescript" style={vscDarkPlus}>
                     {`context.rect(x, y, width, height); // 繪製一個(x, y)為左上角，寬為width，高為height的方形
 `}
@@ -102,7 +103,7 @@ context.arcTo(x1, y1, x2, y2, radius); // 繪製圓弧
                 <p>我們可以看範例來了解</p>
                 <CanvasRect />
 
-                <p>fillRect()方法的參數如下</p>
+                <h4>fillRect()方法的參數如下</h4>
                 <Prism language="typescript" style={vscDarkPlus}>
                     {`context.fillRect(x, y, width, height); // 繪製一個(x, y)為左上角，寬為width，高為height的方形
 `}
@@ -119,7 +120,7 @@ context.arcTo(x1, y1, x2, y2, radius); // 繪製圓弧
                 <p>arc(): 用於從當前點開始繪制一個圓弧。它需要指定圓心座標、半徑、開始角度和結束角度。可以通過結束角度減去開始角度來繪製完整圓形。此方法更加靈活，可以畫出多種類型的圓弧。</p>
                 <p>arcTo(): 用於繪製兩個切線之間的弧。它需要指定起始點、夾角和終點。如果轉換角度趨近 0 或 180 度，則繪製出來的效果會趨近於直線。由於其限制性較大，在某些情況下可能無法繪製完美的圓形。</p>
 
-                <p>arc()方法的參數如下</p>
+                <h4>arc()方法的參數如下</h4>
                 <Prism language="typescript" style={vscDarkPlus}>
                     {`context.arc(x, y, radius, startAngle, endAngle, anticlockwise);`}
                 </Prism>
@@ -127,7 +128,7 @@ context.arcTo(x1, y1, x2, y2, radius); // 繪製圓弧
                 <p>我們來看一個圓弧的範例，使用arc()</p>
                 <CanvasCurveArc />
 
-                <p>arcTo()方法的參數如下</p>
+                <h4>arcTo()方法的參數如下</h4>
                 <Prism language="typescript" style={vscDarkPlus}>
                     {`context.arcTo(x1, y1, x2, y2, radius);`}
                 </Prism>
@@ -137,7 +138,7 @@ context.arcTo(x1, y1, x2, y2, radius); // 繪製圓弧
                 <CanvasCurveArcTo />
 
                 <h3>繪製圓形</h3>
-                <p>我們也可以用arc()方法來畫出這個圖形</p>
+                <p>前面我們透過arc來繪製圓弧，但是我們也可以透過arc來繪製圓形</p>
                 <p>我們來看一個範例</p>
                 <CanvasCircleArc />
 
@@ -151,12 +152,15 @@ context.arcTo(x1, y1, x2, y2, radius); // 繪製圓弧
 
                 <p>到目前為止，你就能夠繪製出各種圖形了</p>
 
+                <p>像是三角形</p>
+                <CanvasTriangle />
 
+                <p>下面我們要教你如何繪製文字</p>
             </div>
 
             <div className="link_container">
-                <Link href="/">回到上一頁</Link>
-                <Link href="/CanvasImport">你可能會犯的錯</Link>
+                <Link href="/">上一篇：Canvas介紹</Link>
+                <Link href="/CanvasText">下一篇：Canvas繪製文字</Link>
             </div>
         </Layout>
     )
