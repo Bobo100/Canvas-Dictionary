@@ -5,6 +5,7 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { CanvasDrawImage } from "../components/CavnasImage/CanvasDrawImage";
 import { CanvasImageZoomCenter } from "../components/CanvasImageAdvance/CanvasImageZoomCenter";
 import { CanvasImageZoomMousePosition } from "../components/CanvasImageAdvance/CanvasImageZoomMousePosition";
+import { CanvasImageZoomMousePosition2 } from "../components/CanvasImageAdvance/CanvasImageZoomMousePosition2";
 
 function CanvasImageAdvance() {
     return (
@@ -19,7 +20,9 @@ function CanvasImageAdvance() {
 
                 <p>根據滑鼠的位置來縮放圖片</p>
                 <CanvasImageZoomMousePosition src="https://fastly.picsum.photos/id/425/400/400.jpg?hmac=jyddRckSHTAA0ySvfigP46CoTk_DsIe9P0-mUtCFGXE" />
+
                 <p>我們可以再優化這個效果，當有放大後，再沒有回復到原本大小前，縮小一定是從放大那個的滑鼠位置開始縮小，這樣的效果會比較好。</p>
+                <CanvasImageZoomMousePosition2 src="https://fastly.picsum.photos/id/425/400/400.jpg?hmac=jyddRckSHTAA0ySvfigP46CoTk_DsIe9P0-mUtCFGXE" />
 
 
 
