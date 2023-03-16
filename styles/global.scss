@@ -43,7 +43,7 @@ code {
     align-items: flex-start;
     box-sizing: border-box;
     flex-direction: column;
-    margin: 20px auto;
+    margin: 20px;
     max-width: 1440px;
 }
 
@@ -61,10 +61,11 @@ a {
 
 .link_container > a {
     margin: 10px;
+    margin-left: 0;
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 3em;
     color: #61dafb;
     background-color: #0f1114;
 
@@ -72,7 +73,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2em;
     color: #61dafb;
     background-color: #0f1114;
 
@@ -80,7 +81,7 @@ h2 {
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.5em;
     color: #61dafb;
     background-color: #0f1114;
 
@@ -88,7 +89,7 @@ h3 {
 }
 
 h4 {
-    font-size: 1.25rem;
+    font-size: 1.25em;
     color: #61dafb;
     background-color: #0f1114;
 
