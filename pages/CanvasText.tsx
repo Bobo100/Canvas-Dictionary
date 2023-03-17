@@ -29,10 +29,8 @@ context.fillText(text, x, y);`}
                 </Prism>
 
                 <p>接著我們來看一個範例</p>
-                <p>首先我們要先設定文字的顏色</p>
-                <p>然後我們要呼叫fillText()方法</p>
-                <p>最後我們要呼叫fill()方法</p>
-                <p>這樣我們就可以在Canvas上繪製文字了</p>
+                <p>首先，我們設定了文字的顏色為白色，字體大小為30px，字型為Arial</p>
+                <p>然後我們在(0,30)的位置填入文字Hello World，(0,60)的位置填入文字你好</p>
                 <CanvasFillText />
 
             </div>

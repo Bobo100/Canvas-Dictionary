@@ -9,14 +9,13 @@ export function CanvasTriangle() {
             const context = canvasRef.current.getContext('2d');
             if (context) {
                 context.clearRect(0, 0, 200, 200); // 清除畫布
-                context.beginPath(); // 開始繪製
                 context.strokeStyle = 'red'; // 設定線條顏色 線條預設顏色為黑色
+                context.beginPath(); // 開始繪製
                 context.moveTo(100, 0); // 設定起始點
                 context.lineTo(0, 190);
                 context.lineTo(200, 190);
-                context.lineTo(100, 0);
+                context.lineTo(100, 0); // 也可以用 context.closePath(); 來封閉路徑
                 context.stroke();
-                context.closePath();
             }
         }
     }, []);
@@ -31,14 +30,13 @@ useEffect(() => {
         const context = canvasRef.current.getContext('2d');
         if (context) {
             context.clearRect(0, 0, 200, 200); // 清除畫布
-            context.beginPath(); // 開始繪製
             context.strokeStyle = 'red'; // 設定線條顏色 線條預設顏色為黑色
+            context.beginPath(); // 開始繪製
             context.moveTo(100, 0); // 設定起始點
             context.lineTo(0, 190);
             context.lineTo(200, 190);
-            context.lineTo(100, 0);
+            context.lineTo(100, 0); // 也可以用 context.closePath(); 來封閉路徑
             context.stroke();
-            context.closePath();
         }
     }
 }, []);`}

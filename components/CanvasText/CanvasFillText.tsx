@@ -9,11 +9,10 @@ export function CanvasFillText() {
             const context = canvasRef.current.getContext('2d');
             if (context) {
                 context.clearRect(0, 0, 200, 200); // 清除畫布                
-                context.beginPath(); // 開始繪製  
                 context.fillStyle = 'white'; // 設定填滿顏色 填滿預設顏色為黑色
                 context.font = '30px Arial'; // 設定字體大小及字型
                 context.fillText('Hello World', 0, 30); // 在(0,30)的位置填入文字 30的原因是因為字體大小為30px 這樣才會剛剛好能夠顯示出來
-                context.closePath();
+                context.fillText("你好", 0, 60); // 在(0,60)的位置填入文字 60的原因是因為字體大小為30px 這樣才會剛剛好能夠顯示出來
             }
         }
     }, []);
@@ -27,12 +26,11 @@ useEffect(() => {
     if (canvasRef.current) {
         const context = canvasRef.current.getContext('2d');
         if (context) {
-            context.clearRect(0, 0, 200, 200); // 清除畫布                
-            context.beginPath(); // 開始繪製  
-            context.fillStyle = 'white'; // 設定填滿顏色 填滿預設顏色為黑色
-            context.font = '30px Arial'; // 設定字體大小及字型
-            context.fillText('Hello World', 0, 30); // 在(0,30)的位置填入文字 30的原因是因為字體大小為30px 這樣才會剛剛好能夠顯示出來
-            context.closePath();
+                context.clearRect(0, 0, 200, 200); // 清除畫布                
+                context.fillStyle = 'white'; // 設定填滿顏色 填滿預設顏色為黑色
+                context.font = '30px Arial'; // 設定字體大小及字型
+                context.fillText('Hello World', 0, 30); // 在(0,30)的位置填入文字 30的原因是因為字體大小為30px 這樣才會剛剛好能夠顯示出來
+                context.fillText("你好", 0, 60); // 在(0,60)的位置填入文字 60的原因是因為字體大小為30px 這樣才會剛剛好能夠顯示出來
         }
     }
 }, []);`}

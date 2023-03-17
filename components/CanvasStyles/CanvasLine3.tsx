@@ -1,8 +1,8 @@
-// 連續畫線
+// 畫線 兩條線不同顏色
 import { useEffect, useRef } from "react";
 import { Prism } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-export function CanvasLine2() {
+export function CanvasLine3() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     useEffect(() => {
         if (canvasRef.current) {
@@ -15,9 +15,17 @@ export function CanvasLine2() {
                 context.strokeStyle = 'red';
                 // 開始畫線
                 context.beginPath();
-                context.moveTo(0, 0); // 起點
-                context.lineTo(100, 100); // 終點 // 也會是接著畫的起點
-                context.lineTo(200, 50); // 終點
+                context.moveTo(0, 0);
+                context.lineTo(100, 100);
+                context.stroke();
+
+                // 準備畫第二條線
+                // 先設定線條顏色
+                context.strokeStyle = 'yellow';
+                // 開始畫線
+                context.beginPath();
+                context.moveTo(100, 100);
+                context.lineTo(200, 50)
                 context.stroke();
             }
         }
@@ -39,11 +47,18 @@ useEffect(() => {
             context.strokeStyle = 'red';
             // 開始畫線
             context.beginPath();
-            context.moveTo(0, 0); // 起點
-            context.lineTo(100, 100); // 終點 // 也會是接著畫的起點
-            context.lineTo(200, 50); // 終點
+            context.moveTo(0, 0);
+            context.lineTo(100, 100);
             context.stroke();
-        }
+
+            // 準備畫第二條線
+            // 先設定線條顏色
+            context.strokeStyle = 'yellow';
+            // 開始畫線
+            context.beginPath();
+            context.moveTo(100, 100);
+            context.lineTo(200, 50)
+            context.stroke();
     }
 }, []);
 `}
