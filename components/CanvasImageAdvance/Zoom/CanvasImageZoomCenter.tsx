@@ -13,11 +13,6 @@ export function CanvasImageZoomCenter({ src }: { src: string }) {
 
     // 第一次載入圖片
     useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
-
         const img = new Image();
         img.src = src;
         // 當圖片載入完成後，才把圖片設定到state
@@ -80,11 +75,7 @@ const maxScale = 3;
 const minScale = 1;
 
 // 第一次載入圖片
-useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+useEffect(() => {    
     const img = new Image();
     img.src = src;
     // 當圖片載入完成後，才把圖片設定到state
@@ -117,6 +108,7 @@ useEffect(() => {
     ctx.translate(-centerX, -centerY);
     // 繪製圖片
     ctx.drawImage(image, 0, 0);
+
     const handleWheel = (e: WheelEvent) => {
         e.preventDefault();
         const delta = -Math.sign(e.deltaY);

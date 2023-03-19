@@ -14,11 +14,6 @@ export function CanvasImageZoomMousePosition({ src }: { src: string }) {
 
     // 第一次載入圖片
     useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
-
         const img = new Image();
         img.src = src;
         // 當圖片載入完成後，才把圖片設定到state
@@ -91,11 +86,6 @@ const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
 // 第一次載入圖片
 useEffect(() => {
-    if (image) return;
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
     const img = new Image();
     img.src = src;
     // 當圖片載入完成後，才把圖片設定到state
@@ -126,6 +116,7 @@ useEffect(() => {
     ctx.translate(-mouse_canvas_x, -mouse_canvas_y);
     // 繪製圖片
     ctx.drawImage(image, 0, 0);
+    
     const handleWheel = (e: WheelEvent) => {
         e.preventDefault();
         const delta = -Math.sign(e.deltaY);

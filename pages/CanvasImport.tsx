@@ -11,12 +11,10 @@ export function CanvasImport() {
             </Head>
 
             <div>
-                <h1>這裡會給你一些Canvas的注意事項</h1>
-                <p>很多人或是我偶爾也會忘記，所以我就把它寫在這裡</p>
+                <h1>這裡有一些Canvas的注意事項</h1>
+                <p>我偶爾也會忘記，所以就把它寫在這裡</p>
 
                 <p>記得要把Canvas的寬高設定好，不然你會看不到你畫的東西</p>
-                <p>記得要close path，不然你有機會看到很奇怪的東西</p>
-                <p>雖然說現在的瀏覽器都會自動幫你close path，但是還是要記得</p>
             </div>
         </Layout>
     )
