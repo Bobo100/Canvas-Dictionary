@@ -19,11 +19,11 @@ export function CanvasImageZoomCenter({ src }: { src: string }) {
         if (!ctx) return;
 
         const img = new Image();
+        img.src = src;
+        // 當圖片載入完成後，才把圖片設定到state
         img.onload = () => {
             setImage(img);
         }
-        // 因為圖片載入是非同步的，所以要等圖片載入完才能將src 設定給 img
-        img.src = src;
     }, [src]);
 
     useEffect(() => {
@@ -86,6 +86,8 @@ useEffect(() => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     const img = new Image();
+    img.src = src;
+    // 當圖片載入完成後，才把圖片設定到state
     img.onload = () => {
         setImage(img);
     }

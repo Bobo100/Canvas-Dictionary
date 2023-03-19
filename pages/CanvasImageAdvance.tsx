@@ -12,7 +12,11 @@ function CanvasImageAdvance() {
         <Layout>
             <div>
                 <h1>Canvas的圖片繪製(進階版)</h1>
-                <p>在上一篇中，我們介紹了Canvas的圖片繪製，但是在實際的開發中，我們會需要更多的功能，像是圖片的縮放、旋轉、裁切等等，這篇就來介紹一下這些功能。</p>
+                <p>在上一篇中，我們介紹了Canvas的圖片繪製，但是在實際的開發中，我們會需要更多的功能，像是圖片的縮放、
+                    <a href="/CanvasImageAdvance#image_rotate">旋轉</a>
+                    、<a href="/CanvasImageAdvance">裁切</a>
+                    、<a href="/CanvasImageAdvance">放大鏡</a>
+                    等等，這篇就來介紹一下這些功能。</p>
                 <h2>圖片的縮放</h2>
                 <h3>從圖片的中心點開始縮放(有很多作法，這邊提供一種)</h3>
                 <p>概念是這樣的，我們先把圖片的中心點設定成原點，然後再縮放圖片，最後再把原點移回左上角，這樣就可以達到從圖片的中心點開始縮放的效果。</p>
@@ -23,6 +27,9 @@ function CanvasImageAdvance() {
 
                 <p>我們可以再優化這個效果，當有放大後，再沒有回復到原本大小前，縮小一定是從放大那個的滑鼠位置開始縮小，這樣的效果會比較好。</p>
                 <CanvasImageZoomMousePosition2 src="./images/mountain.jpg" />
+
+                <h2 id="image_rotate">圖片的旋轉</h2>
+                <p>旋轉圖片的話，我們可以使用<code>context.rotate</code>來處理，這個方法會把圖片旋轉一定的角度，但是這個方法會影響到整個畫布，所以我們需要先把畫布的原點移動到圖片的中心點，然後再旋轉，最後再把原點移回左上角。</p>
 
 
 
