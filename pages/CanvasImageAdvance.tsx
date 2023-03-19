@@ -16,13 +16,13 @@ function CanvasImageAdvance() {
                 <h2>圖片的縮放</h2>
                 <h3>從圖片的中心點開始縮放(有很多作法，這邊提供一種)</h3>
                 <p>概念是這樣的，我們先把圖片的中心點設定成原點，然後再縮放圖片，最後再把原點移回左上角，這樣就可以達到從圖片的中心點開始縮放的效果。</p>
-                <CanvasImageZoomCenter src="https://fastly.picsum.photos/id/425/400/400.jpg?hmac=jyddRckSHTAA0ySvfigP46CoTk_DsIe9P0-mUtCFGXE" />
+                <CanvasImageZoomCenter src="./images/mountain.jpg" />
 
                 <p>根據滑鼠的位置來縮放圖片</p>
-                <CanvasImageZoomMousePosition src="https://fastly.picsum.photos/id/425/400/400.jpg?hmac=jyddRckSHTAA0ySvfigP46CoTk_DsIe9P0-mUtCFGXE" />
+                <CanvasImageZoomMousePosition src="./images/mountain.jpg" />
 
                 <p>我們可以再優化這個效果，當有放大後，再沒有回復到原本大小前，縮小一定是從放大那個的滑鼠位置開始縮小，這樣的效果會比較好。</p>
-                <CanvasImageZoomMousePosition2 src="https://fastly.picsum.photos/id/425/400/400.jpg?hmac=jyddRckSHTAA0ySvfigP46CoTk_DsIe9P0-mUtCFGXE" />
+                <CanvasImageZoomMousePosition2 src="./images/mountain.jpg" />
 
 
 

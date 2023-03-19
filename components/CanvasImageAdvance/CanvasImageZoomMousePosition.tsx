@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Prism } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { Decimal } from "decimal.js"
-import image_show from "../public/images/DCD4EF24-BBCE-4A90-8067-A2A52E04B1BF.jpg";
 
 export function CanvasImageZoomMousePosition({ src }: { src: string }) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -15,15 +14,16 @@ export function CanvasImageZoomMousePosition({ src }: { src: string }) {
 
     // 第一次載入圖片
     useEffect(() => {
-        if (image) return;
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
         const img = new Image();
+        img.onload = () => {
+            setImage(img);
+        }
         img.src = src;
-        setImage(img);
     }, [src]);
 
     useEffect(() => {
@@ -32,19 +32,23 @@ export function CanvasImageZoomMousePosition({ src }: { src: string }) {
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
-        // 把canvas的大小設定成圖片的大小
+        // 把canvas的大小設定成圖片的大小，方便縮放
         canvas.width = image.width;
         canvas.height = image.height;
+        const rect = canvas.getBoundingClientRect();
+        const mouse_canvas_x = mousePosition.x * image.width / rect.width;
+        const mouse_canvas_y = mousePosition.y * image.height / rect.height;
         // 清除畫布
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         // 將canvas的原點移動到滑鼠的位置
-        ctx.translate(mousePosition.x, mousePosition.y);
+        ctx.translate(mouse_canvas_x, mouse_canvas_y);
         // 縮放圖片
         ctx.scale(scaleSum, scaleSum);
         // 移動圖片的原點到滑鼠的位置
-        ctx.translate(-mousePosition.x, -mousePosition.y);
+        ctx.translate(-mouse_canvas_x, -mouse_canvas_y);
         // 繪製圖片
         ctx.drawImage(image, 0, 0);
+
         const handleWheel = (e: WheelEvent) => {
             e.preventDefault();
             const delta = -Math.sign(e.deltaY);
@@ -72,12 +76,9 @@ export function CanvasImageZoomMousePosition({ src }: { src: string }) {
         }
     }, [image, scaleSum]);
 
-
-
-
     return (
         <div>
-            <canvas ref={canvasRef} width={200} height={200} />
+            <canvas ref={canvasRef} />
             <Prism language="typescript" style={vscDarkPlus}>
                 {`const canvasRef = useRef<HTMLCanvasElement | null>(null);
 const [image, setImage] = useState<HTMLImageElement | null>(null);
@@ -86,6 +87,7 @@ const maxScale = 3;
 const minScale = 1;
 // 紀錄滑鼠的位置
 const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
 // 第一次載入圖片
 useEffect(() => {
     if (image) return;
@@ -94,26 +96,31 @@ useEffect(() => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     const img = new Image();
-    img.src = src;
-    setImage(img);
+    img.onload = () => {
+        setImage(img);
+    }
 }, [src]);
+
 useEffect(() => {
     if (!image) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    // 把canvas的大小設定成圖片的大小
+    // 把canvas的大小設定成圖片的大小，方便縮放
     canvas.width = image.width;
     canvas.height = image.height;
+    const rect = canvas.getBoundingClientRect();
+    const mouse_canvas_x = mousePosition.x * image.width / rect.width;
+    const mouse_canvas_y = mousePosition.y * image.height / rect.height;
     // 清除畫布
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // 將canvas的原點移動到滑鼠的位置
-    ctx.translate(mousePosition.x, mousePosition.y);
+    ctx.translate(mouse_canvas_x, mouse_canvas_y);
     // 縮放圖片
     ctx.scale(scaleSum, scaleSum);
     // 移動圖片的原點到滑鼠的位置
-    ctx.translate(-mousePosition.x, -mousePosition.y);
+    ctx.translate(-mouse_canvas_x, -mouse_canvas_y);
     // 繪製圖片
     ctx.drawImage(image, 0, 0);
     const handleWheel = (e: WheelEvent) => {
@@ -128,6 +135,7 @@ useEffect(() => {
         }
     }
     canvas.addEventListener('wheel', handleWheel);
+
     const handleMouseMove = (e: MouseEvent) => {
         const rect = canvas.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -135,10 +143,12 @@ useEffect(() => {
         setMousePosition({ x, y });
     }
     canvas.addEventListener('mousemove', handleMouseMove);
+
     return () => {
         canvas.removeEventListener('wheel', handleWheel);
         canvas.removeEventListener('mousemove', handleMouseMove);
     }
+
 }, [image, scaleSum]);`}
             </Prism>
         </div>

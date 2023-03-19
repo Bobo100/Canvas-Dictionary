@@ -16,7 +16,9 @@ function CanvasImage() {
                 <h4>drawImage()參數如下</h4>
                 <Prism language="typescript" style={vscDarkPlus}>
                     {`// image：要繪製的圖片，sx：圖片的x座標，sy：圖片的y座標，sWidth：圖片的寬度，sHeight：圖片的高度，dx：要繪製的x座標，dy：要繪製的y座標，dWidth：要繪製的寬度，dHeight：要繪製的高度
-drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);`}
+drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+drawImage(image, dx, dy)
+drawImage(image, dx, dy, dWidth, dHeight) // 多數情況會使用這個`}
                 </Prism>
                 <p>image：要繪製的圖片，sx：圖片的x座標，sy：圖片的y座標，sWidth：圖片的寬度，sHeight：圖片的高度，dx：要繪製的x座標，dy：要繪製的y座標，dWidth：要繪製的寬度，dHeight：要繪製的高度</p>
 
