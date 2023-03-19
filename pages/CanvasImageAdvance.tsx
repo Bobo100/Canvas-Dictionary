@@ -7,6 +7,7 @@ import CanvasImageRotate from "../components/CanvasImageAdvance/Rotate/CanvasIma
 import { Prism } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import CanvasImageClip from "../components/CanvasImageAdvance/Clip/CanvasImageClip";
+import CanvasZoom from "../components/CanvasImageAdvance/PixelZoom/CanvasPixelZoom";
 
 function CanvasImageAdvance() {
     return (
@@ -69,10 +70,13 @@ ctx.fillRect(150, 40, 100, 100);`}
                 <CanvasImageClip src="./images/mountain.jpg" />
 
 
-                <h2>放大鏡(尚未寫)</h2>
+                <h2>放大鏡 PixelZoom (官方版本)</h2>
+                <CanvasZoom src="./images/mountain.jpg" />
+
 
                 {/* <p>我們可以使用<code>globalCompositeOperation</code>來處理這個問題，這個屬性可以讓我們決定當兩個圖層重疊時，要如何處理。</p>
                 <p>下面我們會示範一個放大鏡的效果，這個效果是使用<code>globalCompositeOperation</code>來處理的。</p> */}
+
 
                 <h2>使用其他套件來幫忙~</h2>
                 <p>我們可以使用一個套件來幫我們處理這些事情，這個套件叫做<code>konva</code>，這個套件可以幫我們處理很多Canvas的事情，像是圖片的縮放、旋轉、裁切等等</p>

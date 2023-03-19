@@ -10,11 +10,10 @@ export default function CanvasImageClip({ src }: { src: string }) {
 
     useEffect(() => {
         const img = new Image();
-        // 當圖片載入完成後，才把圖片設定到state
+        img.src = src;
         img.onload = () => {
             setImage(img);
         }
-        img.src = src;
     }, [src]);
 
     useEffect(() => {
@@ -70,7 +69,7 @@ useEffect(() => {
             context.clip(); // 裁切 會把之前畫的圖形當作遮罩
             context.drawImage(image, 0, 0, 300, 300); // 畫圖
             context.restore();
-            
+
             // 我們還使用了上面學過的 save() 和 restore() 方法
             // 這兩個方法可以讓我們在畫布上保存當前的狀態，並在之後還原到之前的狀態。
             // 讓我們可以就算裁切後，還可以繼續在畫布上畫圖。 
