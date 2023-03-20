@@ -4,7 +4,6 @@ export const CommonPrism = ({ children }: { children: string }) => {
     return (
         <div className="code-block-container">
             <Prism className="code-block" language="typescript" style={vscDarkPlus}
-
                 showLineNumbers={true}
             >
                 {children}
