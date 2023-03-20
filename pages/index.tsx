@@ -37,7 +37,7 @@ function HomePage() {
 
             <p>我特別加上border來讓大家可以看到Canvas的大小，這邊另外可以注意到的是我明明width設定是200，但出來的寬度卻是500，是因為css的優先權比html的style高</p>
             <div>
-                <canvas width="200" height="100"></canvas>
+                <canvas width="200" height="100" className="canvas"></canvas>
             </div>
 
             <p>接著我們要開始在Canvas上繪製圖形，首先我們要先取得Canvas的Context</p>
