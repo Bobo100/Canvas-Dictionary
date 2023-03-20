@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { CommonPrism } from "../components/Common";
+import { CommonPrism } from "../Common";
 export function CanvasFillText() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     useEffect(() => {
