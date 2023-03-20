@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { CommonPrism } from "../components/Common";import { Decimal } from "decimal.js"
+import { Decimal } from "decimal.js"
 import { CommonPrism } from "../../Common";
 
 export function CanvasImageZoomMousePosition({ src }: { src: string }) {
