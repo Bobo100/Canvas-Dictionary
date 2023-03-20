@@ -4,7 +4,7 @@ import { CanvasImageZoomCenter } from "../components/CanvasImageAdvance/Zoom/Can
 import { CanvasImageZoomMousePosition } from "../components/CanvasImageAdvance/Zoom/CanvasImageZoomMousePosition";
 import { CanvasImageZoomMousePosition2 } from "../components/CanvasImageAdvance/Zoom/CanvasImageZoomMousePosition2";
 import CanvasImageRotate from "../components/CanvasImageAdvance/Rotate/CanvasImageRotate";
-import { CommonPrism } from "../components/Common";import CanvasImageClip from "../components/CanvasImageAdvance/Clip/CanvasImageClip";
+import CanvasImageClip from "../components/CanvasImageAdvance/Clip/CanvasImageClip";
 import CanvasZoom from "../components/CanvasImageAdvance/PixelZoom/CanvasPixelZoom";
 import { CommonPrism } from "../components/Common";
 
