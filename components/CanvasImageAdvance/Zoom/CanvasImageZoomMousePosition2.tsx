@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { Decimal } from "decimal.js"
+import { CommonPrism } from "../../Common";
 
 export function CanvasImageZoomMousePosition2({ src }: { src: string }) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -15,7 +14,7 @@ export function CanvasImageZoomMousePosition2({ src }: { src: string }) {
     const [specialMousePosition, setSpecialMousePosition] = useState({ x: 0, y: 0 });
 
     // 第一次載入圖片
-    useEffect(() => {      
+    useEffect(() => {
         const img = new Image();
         img.src = src;
         // 當圖片載入完成後，才把圖片設定到state
@@ -89,8 +88,8 @@ export function CanvasImageZoomMousePosition2({ src }: { src: string }) {
 
     return (
         <div>
-            <canvas ref={canvasRef} />
-            <Prism language="typescript" style={vscDarkPlus}>
+            <canvas ref={canvasRef} className="canvas" />
+            <CommonPrism>
                 {`const canvasRef = useRef<HTMLCanvasElement | null>(null);
 const [image, setImage] = useState<HTMLImageElement | null>(null);
 const [scaleSum, setScaleSum] = useState(1);
@@ -173,7 +172,7 @@ useEffect(() => {
     }
 
 }, [image, scaleSum]);`}
-            </Prism>
+            </CommonPrism>
         </div>
     )
 }

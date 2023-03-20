@@ -1,7 +1,5 @@
 import Link from "next/link";
 import Layout from "../components/layout";
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { CanvasLine } from "../components/CanvasStyles/CanvasLine";
 import { CanvasLine2 } from "../components/CanvasStyles/CanvasLine2";
 import { CanvasCurveArc } from "../components/CanvasStyles/CanvasCurveArc";
@@ -15,6 +13,7 @@ import { CanvasTriangle } from "../components/CanvasStyles/CanvasTriangle";
 import Head from "next/head";
 import { CanvasLine3 } from "../components/CanvasStyles/CanvasLine3";
 import { CanvasLine4 } from "../components/CanvasStyles/CanvasLine4";
+import { CommonPrism } from "../components/Common";
 
 export function CanvasStyles() {
     return (
@@ -28,37 +27,37 @@ export function CanvasStyles() {
             <h2>Canvas的基本繪圖功能</h2>
 
             <h3>首先我們要來認識語法</h3>
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`context.beginPath(); // 開始繪製(針對線條)
 context.closePath(); // 結束繪製 會從最後一個點連到第一個點 但要再呼叫fill()或stroke()前才會繪製出來 (也是for線條的)
 context.fill(); // 填滿
 context.stroke(); // 繪製線條
 ...還有非常多
 `}
-            </Prism>
+            </CommonPrism>
 
             <p>Canvas繪製圖形的一切都要從beginPath()開始，而結束則是要呼叫closePath()，而fill()則是用來填滿圖形，而stroke()則是用來繪製線條</p>
 
             <h3>接著，可以了解一些屬性</h3>
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`context.fillStyle = 'red'; // 填滿的顏色
 context.strokeStyle = 'red'; // 線條的顏色
 context.lineWidth = 5; // 線條的寬度
 ...還有非常多
 `}
-            </Prism>
+            </CommonPrism>
 
             <p>fillStyle是用來設定填滿的顏色，而strokeStyle是用來設定線條的顏色，而lineWidth是用來設定線條的寬度</p>
 
             <h3>最後，可以了解一些方法</h3>
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`context.moveTo(x, y); // 移動到(x, y)的位置
 context.lineTo(x, y); // 繪製一條線到(x, y)的位置
 context.arc(x, y, radius, startAngle, endAngle, counterclockwise); // 繪製圓形
 context.arcTo(x1, y1, x2, y2, radius); // 繪製圓弧
 ...還有非常多
 `}
-            </Prism>
+            </CommonPrism>
 
             <p>看起來還是很複雜，但是我們會在下面的範例中，一一介紹</p>
             <p>Canvas的基本繪圖功能包含了繪製圓形、線條、文字、圖片等等，又或是繪製的位置、大小、顏色等等</p>
@@ -69,16 +68,16 @@ context.arcTo(x1, y1, x2, y2, radius); // 繪製圓弧
 
             <p>moveTo()方法是用來移動畫筆的位置，而lineTo()方法是用來繪製線條</p>
             <h4>moveTo()方法的參數如下</h4>
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`context.moveTo(x, y); // 移動到(x, y)的位置
 `}
-            </Prism>
+            </CommonPrism>
 
             <h4>lineTo()方法的參數如下</h4>
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`context.lineTo(x, y); // 繪製一條線到(x, y)的位置
 `}
-            </Prism>
+            </CommonPrism>
 
             <p>我們來看一個範例，程式碼如下</p>
             <CanvasLine />
@@ -99,19 +98,19 @@ context.arcTo(x1, y1, x2, y2, radius); // 繪製圓弧
             <p>Canvas提供了兩個方法來繪製方形，分別是rect()和fillRect()</p>
             <p>rect()方法是用來繪製方形的邊框，而fillRect()方法是用來填滿方形(會直接繪製一個填滿顏色的方形)</p>
             <h4>rect()方法的參數如下</h4>
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`context.rect(x, y, width, height); // 繪製一個(x, y)為左上角，寬為width，高為height的方形
 `}
-            </Prism>
+            </CommonPrism>
             <p>x是方形左上角的x座標，y是方形左上角的y座標，width是方形的寬度，height是方形的高度</p>
             <p>我們可以看範例來了解</p>
             <CanvasRect />
 
             <h4>fillRect()方法的參數如下</h4>
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`context.fillRect(x, y, width, height); // 繪製一個(x, y)為左上角，寬為width，高為height的方形
 `}
-            </Prism>
+            </CommonPrism>
 
             <p>我們來看一個範例，程式碼如下</p>
             <CanvasFillRect />
@@ -125,24 +124,24 @@ context.arcTo(x1, y1, x2, y2, radius); // 繪製圓弧
             <p>arcTo(): 用於繪製兩個切線之間的弧。它需要指定起始點、夾角和終點。如果轉換角度趨近 0 或 180 度，則繪製出來的效果會趨近於直線。由於其限制性較大，在某些情況下可能無法繪製完美的圓形。</p>
 
             <h4>arc()方法的參數如下</h4>
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`context.arc(x, y, radius, startAngle, endAngle, counterclockwise);
 context.arc(x, y, radius, startAngle, endAngle);
 `}
-            </Prism>
+            </CommonPrism>
             <p>其中，x和y是圓心的座標，radius是圓的半徑，startAngle和endAngle是圓弧的起始角度和結束角度，counterclockwise是一個布林值，決定圖形要順時鐘還是逆時鐘繪製，預設是false(順時鐘)</p>
             <p>注意：如果你輸入的是角度，那麼你需要將角度轉換成弧度，可以使用Math.PI來轉換</p>
             <p>公式如下：</p>
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`角度 * Math.PI / 180 = 弧度`}
-            </Prism>
+            </CommonPrism>
             <p>接下來我們來看一個圓弧的範例，使用arc()</p>
             <CanvasCurveArc />
 
             <h4>arcTo()方法的參數如下</h4>
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`context.arcTo(x1, y1, x2, y2, radius);`}
-            </Prism>
+            </CommonPrism>
             <p>其中，x1和y1是圓弧的起始點，x2和y2是圓弧的結束點，radius是圓弧的半徑</p>
 
             <p>我們來看一個範例</p>

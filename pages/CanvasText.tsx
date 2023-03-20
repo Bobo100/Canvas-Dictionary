@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Layout from "../components/layout";
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { CanvasFillText } from "../components/CanvasText/CanvasFillText";
+import { CommonPrism } from "../components/Common";
 
 function CanvasText() {
     return (
@@ -13,20 +12,20 @@ function CanvasText() {
                 <h2>Canvas的文字繪製</h2>
                 <p>Canvas的文字繪製跟繪製圖形的方法差不多，只是要多一個fillText()方法</p>
                 <h4>fillText()方法有三個參數</h4>
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CommonPrism>
                     {` // text：要繪製的文字，x：文字的x座標，y：文字的y座標
 context.fillText(text, x, y);`}
-                </Prism>
+                </CommonPrism>
                 <p>text：要繪製的文字，x：文字的x座標，y：文字的y座標</p>
 
                 <p>而文字的顏色則是由fillStyle來設定</p>
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CommonPrism>
                     {`context.fillStyle = 'red';`}
-                </Prism>
+                </CommonPrism>
                 <p>我們也可以設定文字的字體大小及字型</p>
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CommonPrism>
                     {`context.font = '30px Arial';`}
-                </Prism>
+                </CommonPrism>
 
                 <p>接著我們來看一個範例</p>
                 <p>首先，我們設定了文字的顏色為白色，字體大小為30px，字型為Arial</p>

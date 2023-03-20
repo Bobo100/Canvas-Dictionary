@@ -1,11 +1,7 @@
 // https://canvas-dictionary.vercel.app/
 import Head from "next/head";
 import Layout from '../components/layout';
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-
-import styles from "../styles/index.module.scss"
-import { useEffect, useRef } from "react";
+import { CommonPrism } from "../components/Common";import { useEffect, useRef } from "react";
 import Link from "next/link";
 
 
@@ -35,11 +31,11 @@ function HomePage() {
             <p>首先我們先在HTML中加入一個Canvas元素</p>
             <h3>請注意我們是在React中使用Canvas，而不是在原生的HTML中使用</h3>
 
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`<canvas className="canvas" width="200" height="100"></canvas>`}
-            </Prism>
+            </CommonPrism>
 
-            <p>我特別加上border來讓大家可以看到Canvas的大小</p>
+            <p>我特別加上border來讓大家可以看到Canvas的大小，這邊另外可以注意到的是我明明width設定是200，但出來的寬度卻是500，是因為css的優先權比html的style高</p>
             <div>
                 <canvas width="200" height="100"></canvas>
             </div>
@@ -48,20 +44,20 @@ function HomePage() {
 
             <p>在React中，我們可以透過ref來取得Canvas的DOM元素</p>
 
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`const canvasRef = useRef<HTMLCanvasElement | null>(null);`}
-            </Prism>
+            </CommonPrism>
 
             <p>當然，我們必須把ref加到Canvas上 (如果你不知道什麼是ref，請參考這篇文章)<a href="https://bobo100.github.io/React-Hook/">這裡可以學習useRef</a></p>
 
 
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`< canvas ref={canvasRef} className="canvas" width="200" height="100"></canvas>`}
-            </Prism>
+            </CommonPrism>
 
             <p>到了這裡，我們就可以在useEffect中取得Canvas的Context，並且開始繪製圖形，這裡我們繪製了一個紅色的方塊</p>
 
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`useEffect(() => {
     if (canvasRef.current) {
         const context = canvasRef.current.getContext('2d');
@@ -71,7 +67,7 @@ function HomePage() {
         }
     }
 }, []);`}
-            </Prism>
+            </CommonPrism>
 
             <div>
                 <canvas ref={canvasRef} width="200" height="100"></canvas>

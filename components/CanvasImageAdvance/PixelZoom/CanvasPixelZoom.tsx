@@ -62,7 +62,7 @@ const CanvasZoom: React.FC<Props> = ({ src }) => {
 
     return (
         <div>
-            <canvas ref={canvasRef} />
+            <canvas ref={canvasRef} className="canvas"/>
             <canvas ref={smoothedZoomRef} width={200} height={200} />
             <canvas ref={pixelatedZoomRef} width={200} height={200} />
         </div>

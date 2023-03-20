@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { CommonPrism } from "../Common";
 export function CanvasRect() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     useEffect(() => {
@@ -13,7 +12,7 @@ export function CanvasRect() {
                 // 畫方形的邊框
                 context.rect(5, 5, 100, 100); // 從(5,5)畫一個寬100高100的方形
                 context.stroke(); // 繪製線條
-                
+
                 // 如果要填滿方形，也可以在這邊加上fill()
                 // context.fill();
             }
@@ -23,7 +22,7 @@ export function CanvasRect() {
     return (
         <div>
             <canvas ref={canvasRef} width={200} height={200} />
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`const canvasRef = useRef<HTMLCanvasElement | null>(null);
 useEffect(() => {
     if (canvasRef.current) {
@@ -42,7 +41,7 @@ useEffect(() => {
     }
 }, []);
 `}
-            </Prism>
+            </CommonPrism>
 
         </div>
     )

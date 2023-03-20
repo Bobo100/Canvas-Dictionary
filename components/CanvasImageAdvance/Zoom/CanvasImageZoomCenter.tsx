@@ -1,8 +1,7 @@
 // 從圖片的中心點開始縮放
 import { useEffect, useRef, useState } from "react";
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { Decimal } from "decimal.js"
+import { CommonPrism } from "../../Common";
 
 export function CanvasImageZoomCenter({ src }: { src: string }) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -66,8 +65,8 @@ export function CanvasImageZoomCenter({ src }: { src: string }) {
 
     return (
         <div>
-            <canvas ref={canvasRef} />
-            <Prism language="typescript" style={vscDarkPlus}>
+            <canvas ref={canvasRef} className="canvas" />
+            <CommonPrism>
                 {`const canvasRef = useRef<HTMLCanvasElement | null>(null);
 const [image, setImage] = useState<HTMLImageElement | null>(null);
 const [scaleSum, setScaleSum] = useState(1);
@@ -125,7 +124,7 @@ useEffect(() => {
         canvas.removeEventListener('wheel', handleWheel);
     }
 }, [image, scaleSum]);`}
-            </Prism>
+            </CommonPrism>
         </div>
     )
 }

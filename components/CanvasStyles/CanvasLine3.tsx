@@ -1,7 +1,6 @@
 // 畫線 兩條線不同顏色
 import { useEffect, useRef } from "react";
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { CommonPrism } from "../Common";
 export function CanvasLine3() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     useEffect(() => {
@@ -34,7 +33,7 @@ export function CanvasLine3() {
     return (
         <div>
             <canvas ref={canvasRef} width={200} height={200} />
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`const canvasRef = useRef<HTMLCanvasElement | null>(null);
 useEffect(() => {
     if (canvasRef.current) {
@@ -62,7 +61,7 @@ useEffect(() => {
     }
 }, []);
 `}
-            </Prism>
+            </CommonPrism>
 
         </div>
     )

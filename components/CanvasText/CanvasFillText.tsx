@@ -1,7 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-
+import { CommonPrism } from "../components/Common";
 export function CanvasFillText() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     useEffect(() => {
@@ -20,7 +18,7 @@ export function CanvasFillText() {
     return (
         <div>
             <canvas ref={canvasRef} width={200} height={200} />
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`const canvasRef = useRef<HTMLCanvasElement | null>(null);
 useEffect(() => {
     if (canvasRef.current) {
@@ -34,7 +32,7 @@ useEffect(() => {
         }
     }
 }, []);`}
-            </Prism>
+            </CommonPrism>
         </div>
     )
 }

@@ -1,8 +1,6 @@
 // 圖片裁切
 import { useEffect, useRef, useState } from "react";
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import { Decimal } from "decimal.js"
+import { CommonPrism } from "../../Common";
 
 export default function CanvasImageClip({ src }: { src: string }) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -44,7 +42,7 @@ export default function CanvasImageClip({ src }: { src: string }) {
     return (
         <div>
             <canvas ref={canvasRef} width={300} height={300} />
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`const canvasRef = useRef<HTMLCanvasElement | null>(null);
 const [image, setImage] = useState<HTMLImageElement | null>(null);
 
@@ -81,7 +79,7 @@ useEffect(() => {
         }
     }
 }, [image]);`}
-            </Prism>
+            </CommonPrism>
         </div>
     )
 }

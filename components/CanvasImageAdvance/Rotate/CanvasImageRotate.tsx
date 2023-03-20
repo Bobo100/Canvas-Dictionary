@@ -1,8 +1,7 @@
 // 圖片旋轉?
 import { useEffect, useRef, useState } from "react";
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { Decimal } from "decimal.js"
+import { CommonPrism } from "../../Common";
 
 export default function CanvasImageRotate({ src }: { src: string }) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -64,7 +63,7 @@ export default function CanvasImageRotate({ src }: { src: string }) {
             <canvas ref={canvasRef} width={300} height={300} />
             <canvas ref={canvasRef2} width={300} height={300} />
             <button onClick={rotateImage}>旋轉</button>
-            <Prism language="typescript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`// 正確寫法！！
 const canvasRef = useRef<HTMLCanvasElement | null>(null);
 const [image, setImage] = useState<HTMLImageElement | null>(null);
@@ -104,7 +103,7 @@ function rotateImage() {
     }
     setRotate(newRotate);
 }`}
-            </Prism>
+            </CommonPrism>
         </div>
     )
 }

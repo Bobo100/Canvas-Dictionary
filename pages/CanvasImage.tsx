@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Layout from "../components/layout";
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { CanvasDrawImage } from "../components/CavnasImage/CanvasDrawImage";
+import { CommonPrism } from "../components/Common";
 
 function CanvasImage() {
     return (
@@ -14,12 +13,12 @@ function CanvasImage() {
                 <h2>Canvas的圖片繪製</h2>
                 <p>Canvas的圖片繪製跟繪製圖形的方法差不多，只是要多一個drawImage()方法</p>
                 <h4>drawImage()參數如下</h4>
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CommonPrism>
                     {`// image：要繪製的圖片，sx：圖片的x座標，sy：圖片的y座標，sWidth：圖片的寬度，sHeight：圖片的高度，dx：要繪製的x座標，dy：要繪製的y座標，dWidth：要繪製的寬度，dHeight：要繪製的高度
 drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
 drawImage(image, dx, dy)
 drawImage(image, dx, dy, dWidth, dHeight) // 多數情況會使用這個`}
-                </Prism>
+                </CommonPrism>
                 <p>image：要繪製的圖片，sx：圖片的x座標，sy：圖片的y座標，sWidth：圖片的寬度，sHeight：圖片的高度，dx：要繪製的x座標，dy：要繪製的y座標，dWidth：要繪製的寬度，dHeight：要繪製的高度</p>
 
                 <p>drawImage()方法的參數有點多，但是我們只要知道這些參數的意義就好，不用一定要全部都設定</p>
@@ -28,13 +27,13 @@ drawImage(image, dx, dy, dWidth, dHeight) // 多數情況會使用這個`}
                     。一般來說設定這四個參數就可以了，不過如果要繪製的圖片大小跟Canvas的大小不一樣，就要設定sx、sy、sWidth、sHeight這四個參數</p>
 
                 <h4>我常常這麼寫，可以省略一些參數</h4>
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CommonPrism>
                     {`// 繪製整張圖片
 ctx.drawImage(image, 0, 0);
 // 繪製整張圖片，並設定大小
 ctx.drawImage(image, 0, 0, 100, 100);
 `}
-                </Prism>
+                </CommonPrism>
 
                 <p>接著我們來看一個範例</p>
                 <p>在這個範例中，我們畫了兩張圖片，都是整張圖片，但是用不同大小。</p>

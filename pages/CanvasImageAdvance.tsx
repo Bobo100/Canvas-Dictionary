@@ -4,10 +4,9 @@ import { CanvasImageZoomCenter } from "../components/CanvasImageAdvance/Zoom/Can
 import { CanvasImageZoomMousePosition } from "../components/CanvasImageAdvance/Zoom/CanvasImageZoomMousePosition";
 import { CanvasImageZoomMousePosition2 } from "../components/CanvasImageAdvance/Zoom/CanvasImageZoomMousePosition2";
 import CanvasImageRotate from "../components/CanvasImageAdvance/Rotate/CanvasImageRotate";
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import CanvasImageClip from "../components/CanvasImageAdvance/Clip/CanvasImageClip";
+import { CommonPrism } from "../components/Common";import CanvasImageClip from "../components/CanvasImageAdvance/Clip/CanvasImageClip";
 import CanvasZoom from "../components/CanvasImageAdvance/PixelZoom/CanvasPixelZoom";
+import { CommonPrism } from "../components/Common";
 
 function CanvasImageAdvance() {
     return (
@@ -52,7 +51,7 @@ function CanvasImageAdvance() {
                 <p>以我們上面的例子來說：我們tranlate到canvas的中心點，然後再rotate，接著畫上我們的圖片。接著我們使用restore()來還原到最近一次save的狀態。</p>
 
                 <p>下面再用一個簡單的例子：</p>
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CommonPrism>
                     {`// 保存當前狀態
 ctx.save();
 
@@ -63,7 +62,7 @@ ctx.fillRect(10, 10, 100, 100);
 ctx.restore();
 // 所以這個會變回黑色的 (因為我們的綠色是在save和restore之間的)
 ctx.fillRect(150, 40, 100, 100);`}
-                </Prism>
+                </CommonPrism>
 
                 <h2 id="image_clip">圖片的裁切</h2>
                 <p>我們可以繪製任意的形狀，然後再使用<code>clip</code>來裁切圖片。下面我們會示範一個圓形的裁切。</p>
