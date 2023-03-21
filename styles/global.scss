@@ -173,7 +173,7 @@ span {
 }
 
 .navbar--hidden {
-    top: -100px;
+    top: -$navbar-height;
 }
 
 @media screen and (max-width: 768px) {
