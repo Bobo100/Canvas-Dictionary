@@ -3,9 +3,7 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 export const CommonPrism = ({ children }: { children: string }) => {
     return (
         <div className="code-block-container">
-            <Prism className="code-block" language="typescript" style={vscDarkPlus}
-                showLineNumbers={true}
-            >
+            <Prism className="code-block" language="typescript" style={vscDarkPlus} showLineNumbers={true}>
                 {children}
             </Prism>
         </div>
