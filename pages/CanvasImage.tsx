@@ -1,11 +1,14 @@
-import Link from "next/link";
 import Layout from "../components/layout";
 import { CanvasDrawImage } from "../components/CavnasImage/CanvasDrawImage";
 import { CommonPrism } from "../components/Common";
+import Head from "next/head";
 
 function CanvasImage() {
     return (
         <Layout>
+            <Head>
+                <title>Canvas的圖片繪製</title>
+            </Head>
             <div>
                 <h1>Canvas的圖片繪製</h1>
                 <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage">MDN drawImage</a>
@@ -45,14 +48,6 @@ ctx.drawImage(image, 0, 0, 100, 100);
                 <p>也可以去搭配事件來做一些互動的功能，像是使用滑鼠實現放大鏡的功能，這個我們可以參考<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas">MDN Canvas像素處理</a></p>
                 <p>除了官方教學外，下一篇我們也都會慢慢教你</p>
 
-            </div>
-            <div className="link_container">
-                <Link href="/CanvasText">
-                    上一篇：Canvas的文字繪製
-                </Link>
-                <Link href="/CanvasImageAdvance">
-                    下一篇：Canvas的圖片繪製(進階)
-                </Link>
             </div>
         </Layout>
     )

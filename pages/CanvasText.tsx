@@ -2,10 +2,14 @@ import Link from "next/link";
 import Layout from "../components/layout";
 import { CanvasFillText } from "../components/CanvasText/CanvasFillText";
 import { CommonPrism } from "../components/Common";
+import Head from "next/head";
 
 function CanvasText() {
     return (
         <Layout>
+            <Head>
+                <title>Canvas的文字繪製</title>
+            </Head>
             <div>
                 <h1>Canvas的文字繪製</h1>
                 <p>在上一篇我們介紹了Canvas的基本繪圖功能，接下來我們要介紹Canvas的文字繪製</p>

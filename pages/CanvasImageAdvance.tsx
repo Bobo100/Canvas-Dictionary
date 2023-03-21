@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Layout from "../components/layout";
 import { CanvasImageZoomCenter } from "../components/CanvasImageAdvance/Zoom/CanvasImageZoomCenter";
 import { CanvasImageZoomMousePosition } from "../components/CanvasImageAdvance/Zoom/CanvasImageZoomMousePosition";
@@ -7,10 +6,14 @@ import CanvasImageRotate from "../components/CanvasImageAdvance/Rotate/CanvasIma
 import CanvasImageClip from "../components/CanvasImageAdvance/Clip/CanvasImageClip";
 import CanvasZoom from "../components/CanvasImageAdvance/PixelZoom/CanvasPixelZoom";
 import { CommonPrism } from "../components/Common";
+import Head from "next/head";
 
 function CanvasImageAdvance() {
     return (
         <Layout>
+            <Head>
+                <title>Canvas的圖片繪製(進階版)</title>
+            </Head>
             <div>
                 <h1>Canvas的圖片繪製(進階版)</h1>
                 <p>在上一篇中，我們介紹了Canvas的圖片繪製，但是在實際的開發中，我們會需要更多的功能，像是圖片的縮放、
@@ -79,17 +82,6 @@ ctx.fillRect(150, 40, 100, 100);`}
 
                 <h2>使用其他套件來幫忙~</h2>
                 <p>我們可以使用一個套件來幫我們處理這些事情，這個套件叫做<code>konva</code>，這個套件可以幫我們處理很多Canvas的事情，像是圖片的縮放、旋轉、裁切等等</p>
-
-
-
-            </div>
-            <div className="link_container">
-                <Link href="/CanvasImage">
-                    上一篇：Canvas的圖片繪製
-                </Link>
-                <Link href="/CanvasImport">
-                    下一篇：Canvas的注意事項
-                </Link>
             </div>
         </Layout>
     )

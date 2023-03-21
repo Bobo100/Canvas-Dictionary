@@ -14,6 +14,7 @@ import Head from "next/head";
 import { CanvasLine3 } from "../components/CanvasStyles/CanvasLine3";
 import { CanvasLine4 } from "../components/CanvasStyles/CanvasLine4";
 import { CommonPrism } from "../components/Common";
+import Footer from "../components/Footer";
 
 export function CanvasStyles() {
     return (
@@ -166,11 +167,6 @@ context.arc(x, y, radius, startAngle, endAngle);
             <CanvasTriangle />
 
             <p>下面我們要教你如何繪製文字</p>
-
-            <div className="link_container">
-                <Link href="/">上一篇：Canvas介紹</Link>
-                <Link href="/CanvasText">下一篇：Canvas繪製文字</Link>
-            </div>
         </Layout>
     )
 }

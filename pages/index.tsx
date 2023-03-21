@@ -1,12 +1,10 @@
 // https://canvas-dictionary.vercel.app/
 import Head from "next/head";
 import Layout from '../components/layout';
-import { CommonPrism } from "../components/Common";import { useEffect, useRef } from "react";
-import Link from "next/link";
-
+import { CommonPrism } from "../components/Common";
+import { useEffect, useRef } from "react";
 
 function HomePage() {
-
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     useEffect(() => {
         if (canvasRef.current) {
@@ -74,10 +72,6 @@ function HomePage() {
             </div>
 
             <p>這樣就完成了Canvas的基本使用，接下來我們會介紹Canvas的更多功能，像是如何繪製圓形、線條、文字、圖片等等，以及語法上要注意的地方</p>
-
-            <div className="link_container">
-                <Link href="/CanvasStyles">下一篇：Canvas的基本繪圖功能</Link>
-            </div>
         </Layout >
     )
 }
