@@ -12,6 +12,8 @@ const RouterLink = () => {
             <Link href="/CanvasImageAdvance" className={router.pathname === "/CanvasImageAdvance" ? "active" : ""}>04 圖片繪製(進階)</Link>
             <Link href="/CanvasAnimation" className={router.pathname === "/CanvasAnimation" ? "active" : ""}>05 動畫繪製</Link>
             <Link href="/CanvasImport" className={router.pathname === "/CanvasImport" ? "active" : ""}>06 注意事項</Link>
+
+            <a href="https://bobo100.github.io/Canvas-Paint/" rel="noopener" target="_blank">小小畫家</a>
         </>
     )
 }
