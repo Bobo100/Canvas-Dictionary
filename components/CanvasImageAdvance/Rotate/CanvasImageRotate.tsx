@@ -21,30 +21,28 @@ export default function CanvasImageRotate({ src }: { src: string }) {
 
     useEffect(() => {
         if (!image) return;
-        if (canvasRef.current && canvasRef2.current) {
-            const context = canvasRef.current.getContext('2d');
-            const context2 = canvasRef2.current.getContext('2d');
-            if (context && context2) {
-                context.clearRect(0, 0, 300, 300); // 清除畫布
-                // save() 與 restore() 用來儲存與還原畫布的狀態
-                context.font = '20px sans-serif';
-                context.fillStyle = 'white';
-                context.fillText('使用 save() 與 restore()', 10, 20);
-                context.save();
-                context.translate(150, 150);
-                context.rotate(rotate * Math.PI / 180); // 弧度 = 角度 x Math.PI / 180
-                context.drawImage(image, -100, -100, 200, 200);
-                context.restore();
+        const context = canvasRef.current?.getContext('2d');
+        const context2 = canvasRef2.current?.getContext('2d');
+        if (context && context2) {
+            context.clearRect(0, 0, 300, 300); // 清除畫布
+            // save() 與 restore() 用來儲存與還原畫布的狀態
+            context.font = '20px sans-serif';
+            context.fillStyle = 'white';
+            context.fillText('使用 save() 與 restore()', 10, 20);
+            context.save();
+            context.translate(150, 150);
+            context.rotate(rotate * Math.PI / 180); // 弧度 = 角度 x Math.PI / 180
+            context.drawImage(image, -100, -100, 200, 200);
+            context.restore();
 
-                // 沒有使用 save() 與 restore() 導致畫布狀態被改變 會出現錯誤
-                context2.clearRect(0, 0, 300, 300); // 清除畫布
-                context2.font = '20px sans-serif';
-                context2.fillStyle = 'white';
-                context2.fillText('沒有使用 save() 與 restore()', 10, 20);
-                context2.translate(150, 150);
-                context2.rotate(rotate * Math.PI / 180); // 弧度 = 角度 x Math.PI / 180
-                context2.drawImage(image, -100, -100, 200, 200);
-            }
+            // 沒有使用 save() 與 restore() 導致畫布狀態被改變 會出現錯誤
+            context2.clearRect(0, 0, 300, 300); // 清除畫布
+            context2.font = '20px sans-serif';
+            context2.fillStyle = 'white';
+            context2.fillText('沒有使用 save() 與 restore()', 10, 20);
+            context2.translate(150, 150);
+            context2.rotate(rotate * Math.PI / 180); // 弧度 = 角度 x Math.PI / 180
+            context2.drawImage(image, -100, -100, 200, 200);
         }
     }, [image, rotate]);
 
@@ -80,18 +78,16 @@ useEffect(() => {
 
 useEffect(() => {
     if (!image) return;
-    if (canvasRef.current) {
-        const context = canvasRef.current.getContext('2d');
-        if (context) {
-            context.clearRect(0, 0, 300, 300); // 清除畫布                
-            // save() 與 restore() 用來儲存與還原畫布的狀態
-            context.save();
-            context.translate(150, 150);                
-            context.rotate(rotate * Math.PI / 180); // 弧度 = 角度 x Math.PI / 180
-            context.drawImage(image, -100, -100, 200, 200);
-            context.restore();
-        }
-    }
+    const context = canvasRef.current?.getContext('2d');
+    if (context) {
+        context.clearRect(0, 0, 300, 300); // 清除畫布                
+        // save() 與 restore() 用來儲存與還原畫布的狀態
+        context.save();
+        context.translate(150, 150);                
+        context.rotate(rotate * Math.PI / 180); // 弧度 = 角度 x Math.PI / 180
+        context.drawImage(image, -100, -100, 200, 200);
+        context.restore();
+    }    
 }, [image, rotate]);
 
 function rotateImage() {
