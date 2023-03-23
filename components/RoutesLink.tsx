@@ -14,6 +14,7 @@ const RouterLink = () => {
             <Link href="/CanvasImport" className={router.pathname === "/CanvasImport" ? "active" : ""}>06 注意事項</Link>
 
             <a href="https://bobo100.github.io/Canvas-Paint/" rel="noopener" target="_blank">小小畫家</a>
+            <a href="https://bobo100.github.io/Canvas-Image-Enhance-UI/" rel="noopener" target="_blank">仿圖片增強</a>
         </>
     )
 }
