@@ -6,9 +6,9 @@ import { CommonPrism } from "../../Common";
 export function CanvasImageZoomCenter({ src }: { src: string }) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const [image, setImage] = useState<HTMLImageElement | null>(null);
-    const [scaleSum, setScaleSum] = useState(1);
-    const maxScale = 3;
-    const minScale = 1;
+    const [scaleFactor, setScaleFactor] = useState(1);
+    const maxScaleFactor = 3;
+    const minScaleFactor = 1;
 
     // 第一次載入圖片
     useEffect(() => {
@@ -37,7 +37,7 @@ export function CanvasImageZoomCenter({ src }: { src: string }) {
         // 移動canvas的原點到圖片的中心點
         ctx.translate(centerX, centerY);
         // 縮放canvas
-        ctx.scale(scaleSum, scaleSum);
+        ctx.scale(scaleFactor, scaleFactor);
         // 縮放過後 canvas的原點會移動，所以要再移動回來
         // 當初移動多少，縮放後就要移動多少
         // 移動canvas的原點回到左上角
@@ -48,12 +48,12 @@ export function CanvasImageZoomCenter({ src }: { src: string }) {
             e.preventDefault();
             const delta = -Math.sign(e.deltaY);
 
-            let newScaleFactor = scaleSum;
-            if ((scaleSum < maxScale && delta > 0) || (scaleSum > minScale && delta < 0)) {
-                newScaleFactor = new Decimal(scaleSum).plus(delta * 0.1).toNumber();
+            let newScaleFactor = scaleFactor;
+            if ((scaleFactor < maxScaleFactor && delta > 0) || (scaleFactor > minScaleFactor && delta < 0)) {
+                newScaleFactor = new Decimal(scaleFactor).plus(delta * 0.1).toNumber();
             }
-            if (newScaleFactor !== scaleSum) {
-                setScaleSum(newScaleFactor);
+            if (newScaleFactor !== scaleFactor) {
+                setScaleFactor(newScaleFactor);
             }
         }
         canvas.addEventListener('wheel', handleWheel);
@@ -61,7 +61,7 @@ export function CanvasImageZoomCenter({ src }: { src: string }) {
         return () => {
             canvas.removeEventListener('wheel', handleWheel);
         }
-    }, [image, scaleSum]);
+    }, [image, scaleFactor]);
 
     return (
         <div>
@@ -69,9 +69,9 @@ export function CanvasImageZoomCenter({ src }: { src: string }) {
             <CommonPrism>
                 {`const canvasRef = useRef<HTMLCanvasElement | null>(null);
 const [image, setImage] = useState<HTMLImageElement | null>(null);
-const [scaleSum, setScaleSum] = useState(1);
-const maxScale = 3;
-const minScale = 1;
+const [scaleFactor, setScaleFactor] = useState(1);
+const maxScaleFactor = 3;
+const minScaleFactor = 1;
 
 // 第一次載入圖片
 useEffect(() => {    
@@ -100,7 +100,7 @@ useEffect(() => {
     // 移動canvas的原點到圖片的中心點
     ctx.translate(centerX, centerY);
     // 縮放canvas
-    ctx.scale(scaleSum, scaleSum);
+    ctx.scale(scaleFactor, scaleFactor);
     // 縮放過後 canvas的原點會移動，所以要再移動回來
     // 當初移動多少，縮放後就要移動多少
     // 移動canvas的原點回到左上角
@@ -111,19 +111,19 @@ useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
         e.preventDefault();
         const delta = -Math.sign(e.deltaY);
-        let newScaleFactor = scaleSum;
-        if ((scaleSum < maxScale && delta > 0) || (scaleSum > minScale && delta < 0)) {
-            newScaleFactor = new Decimal(scaleSum).plus(delta * 0.1).toNumber();
+        let newScaleFactor = scaleFactor;
+        if ((scaleFactor < maxScaleFactor && delta > 0) || (scaleFactor > minScaleFactor && delta < 0)) {
+            newScaleFactor = new Decimal(scaleFactor).plus(delta * 0.1).toNumber();
         }
-        if (newScaleFactor !== scaleSum) {
-            setScaleSum(newScaleFactor);
+        if (newScaleFactor !== scaleFactor) {
+            setScaleFactor(newScaleFactor);
         }
     }
     canvas.addEventListener('wheel', handleWheel);
     return () => {
         canvas.removeEventListener('wheel', handleWheel);
     }
-}, [image, scaleSum]);`}
+}, [image, scaleFactor]);`}
             </CommonPrism>
         </div>
     )

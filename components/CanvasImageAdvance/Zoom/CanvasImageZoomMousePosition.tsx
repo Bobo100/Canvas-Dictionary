@@ -5,9 +5,9 @@ import { CommonPrism } from "../../Common";
 export function CanvasImageZoomMousePosition({ src }: { src: string }) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const [image, setImage] = useState<HTMLImageElement | null>(null);
-    const [scaleSum, setScaleSum] = useState(1);
-    const maxScale = 3;
-    const minScale = 1;
+    const [scaleFactor, setScaleFactor] = useState(1);
+    const maxScaleFactor = 3;
+    const minScaleFactor = 1;
     // 紀錄滑鼠的位置
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -38,7 +38,7 @@ export function CanvasImageZoomMousePosition({ src }: { src: string }) {
         // 將canvas的原點移動到滑鼠的位置
         ctx.translate(mouse_canvas_x, mouse_canvas_y);
         // 縮放圖片
-        ctx.scale(scaleSum, scaleSum);
+        ctx.scale(scaleFactor, scaleFactor);
         // 移動圖片的原點到滑鼠的位置
         ctx.translate(-mouse_canvas_x, -mouse_canvas_y);
         // 繪製圖片
@@ -47,12 +47,12 @@ export function CanvasImageZoomMousePosition({ src }: { src: string }) {
         const handleWheel = (e: WheelEvent) => {
             e.preventDefault();
             const delta = -Math.sign(e.deltaY);
-            let newScaleFactor = scaleSum;
-            if ((scaleSum < maxScale && delta > 0) || (scaleSum > minScale && delta < 0)) {
-                newScaleFactor = new Decimal(scaleSum).plus(delta * 0.1).toNumber();
+            let newScaleFactor = scaleFactor;
+            if ((scaleFactor < maxScaleFactor && delta > 0) || (scaleFactor > minScaleFactor && delta < 0)) {
+                newScaleFactor = new Decimal(scaleFactor).plus(delta * 0.1).toNumber();
             }
-            if (newScaleFactor !== scaleSum) {
-                setScaleSum(newScaleFactor);
+            if (newScaleFactor !== scaleFactor) {
+                setScaleFactor(newScaleFactor);
             }
         }
         canvas.addEventListener('wheel', handleWheel);
@@ -69,7 +69,7 @@ export function CanvasImageZoomMousePosition({ src }: { src: string }) {
             canvas.removeEventListener('wheel', handleWheel);
             canvas.removeEventListener('mousemove', handleMouseMove);
         }
-    }, [image, scaleSum]);
+    }, [image, scaleFactor]);
 
     return (
         <div>
@@ -77,9 +77,9 @@ export function CanvasImageZoomMousePosition({ src }: { src: string }) {
             <CommonPrism>
                 {`const canvasRef = useRef<HTMLCanvasElement | null>(null);
 const [image, setImage] = useState<HTMLImageElement | null>(null);
-const [scaleSum, setScaleSum] = useState(1);
-const maxScale = 3;
-const minScale = 1;
+const [scaleFactor, setScaleFactor] = useState(1);
+const maxScaleFactor = 3;
+const minScaleFactor = 1;
 // 紀錄滑鼠的位置
 const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -110,7 +110,7 @@ useEffect(() => {
     // 將canvas的原點移動到滑鼠的位置
     ctx.translate(mouse_canvas_x, mouse_canvas_y);
     // 縮放圖片
-    ctx.scale(scaleSum, scaleSum);
+    ctx.scale(scaleFactor, scaleFactor);
     // 移動圖片的原點到滑鼠的位置
     ctx.translate(-mouse_canvas_x, -mouse_canvas_y);
     // 繪製圖片
@@ -119,12 +119,12 @@ useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
         e.preventDefault();
         const delta = -Math.sign(e.deltaY);
-        let newScaleFactor = scaleSum;
-        if ((scaleSum < maxScale && delta > 0) || (scaleSum > minScale && delta < 0)) {
-            newScaleFactor = new Decimal(scaleSum).plus(delta * 0.1).toNumber();
+        let newScaleFactor = scaleFactor;
+        if ((scaleFactor < maxScaleFactor && delta > 0) || (scaleFactor > minScaleFactor && delta < 0)) {
+            newScaleFactor = new Decimal(scaleFactor).plus(delta * 0.1).toNumber();
         }
-        if (newScaleFactor !== scaleSum) {
-            setScaleSum(newScaleFactor);
+        if (newScaleFactor !== scaleFactor) {
+            setScaleFactor(newScaleFactor);
         }
     }
     canvas.addEventListener('wheel', handleWheel);
@@ -142,7 +142,7 @@ useEffect(() => {
         canvas.removeEventListener('mousemove', handleMouseMove);
     }
 
-}, [image, scaleSum]);`}
+}, [image, scaleFactor]);`}
             </CommonPrism>
         </div>
     )
