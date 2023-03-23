@@ -36,8 +36,10 @@ code {
 .App {
     background-color: #282c34;
     display: flex;
+    flex-direction: column;
     font-size: 2vmin;
     color: white;
+
 }
 
 .container {
@@ -158,6 +160,10 @@ span {
 //     height: 100%;
 // }
 
+code {
+    font-size: 1vw !important;
+}
+
 .navbar {
     position: fixed;
     top: 0;
@@ -175,6 +181,10 @@ span {
 
 .navbar--hidden {
     top: -$navbar-height;
+}
+
+.footer {
+    display: flex;
 }
 
 @media screen and (max-width: 768px) {

@@ -9,7 +9,7 @@ export default function Layout({ children }: LayoutProps) {
         <NavBar />
         <div className="container">
             {children}
-            <Footer />
         </div>
+        <Footer />
     </div>);
 }

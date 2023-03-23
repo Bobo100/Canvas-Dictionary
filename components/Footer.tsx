@@ -4,7 +4,7 @@ import RouterLink from "./RoutesLink"
 const Footer = () => {
     const router = useRouter()
     return (
-        <div className="link_container">
+        <div className="footer">
             <RouterLink />
         </div>
     )
