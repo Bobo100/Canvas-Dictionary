@@ -7,6 +7,7 @@ import CanvasImageClip from "../components/CanvasImageAdvance/Clip/CanvasImageCl
 import CanvasZoom from "../components/CanvasImageAdvance/PixelZoom/CanvasPixelZoom";
 import { CommonPrism } from "../components/Common";
 import Head from "next/head";
+import CanvasDragInto from "../components/CanvasImageAdvance/DragIntoCanvas/CanvasDragInto";
 
 function CanvasImageAdvance() {
     return (
@@ -75,9 +76,12 @@ ctx.fillRect(150, 40, 100, 100);`}
                 <h2>放大鏡 PixelZoom (官方版本)</h2>
                 <CanvasZoom src="./images/mountain.jpg" />
 
-
                 {/* <p>我們可以使用<code>globalCompositeOperation</code>來處理這個問題，這個屬性可以讓我們決定當兩個圖層重疊時，要如何處理。</p>
                 <p>下面我們會示範一個放大鏡的效果，這個效果是使用<code>globalCompositeOperation</code>來處理的。</p> */}
+
+                <h2>抓圖片進到Canvas</h2>
+                <CanvasDragInto />
+                {/* <p>我們可以使用<code>getImageData</code>來抓取圖片的資料，然後再使用<code>putImageData</code>來把資料放回去。</p> */}
 
 
                 <h2>使用其他套件來幫忙~</h2>
