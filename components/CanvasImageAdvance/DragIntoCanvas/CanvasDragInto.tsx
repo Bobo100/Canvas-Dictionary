@@ -62,32 +62,32 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 export default function CanvasDragInto() {
-    const [isDragging, setIsDragging] = useState(false);
+    // const [isDragging, setIsDragging] = useState(false);
     const [image, setImage] = useState<HTMLImageElement | null>(null);
     const [startCoords, setStartCoords] = useState({ x: 0, y: 0 });
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
-    useEffect(() => {
-        if (!canvasRef.current || !image || !isDragging) return;
+    // useEffect(() => {
+    //     if (!canvasRef.current || !image || !isDragging) return;
 
-        const context = canvasRef.current.getContext("2d");
-        const { x, y } = startCoords;
-        const width = image.width;
-        const height = image.height;
+    //     const context = canvasRef.current.getContext("2d");
+    //     const { x, y } = startCoords;
+    //     const width = image.width;
+    //     const height = image.height;
 
-        context?.drawImage(image, x, y, width, height);
-    }, [isDragging]);
+    //     context?.drawImage(image, x, y, width, height);
+    // }, [isDragging]);
 
     function handleDragStart(event: React.DragEvent<HTMLImageElement>) {
         const startX = event.clientX - event.currentTarget.offsetLeft;
         const startY = event.clientY - event.currentTarget.offsetTop;
-        setIsDragging(true);
+        // setIsDragging(true);
         setStartCoords({ x: startX, y: startY });
         setImage(event.currentTarget);
     }
 
     function handleDragEnd(event: React.DragEvent<HTMLImageElement>) {
-        setIsDragging(false);
+        // setIsDragging(false);
         setImage(null);
     }
 
@@ -118,15 +118,6 @@ export default function CanvasDragInto() {
                 onDragOver={handleDragOver}
                 onDrop={handleDrop}
             />
-            {/* <img
-                draggable
-                src="/images/mountain.jpg"
-                width={50}
-                height={50}
-                alt=""
-                onDragStart={handleDragStart}
-                onDragEnd={handleDragEnd}
-            /> */}
             <Image src="/images/mountain.jpg" width={50} height={50} alt=""
                 draggable
                 onDragStart={handleDragStart}
