@@ -33,8 +33,8 @@ export function CanvasImageZoomMousePosition2({ src }: { src: string }) {
         canvas.width = image.width;
         canvas.height = image.height;
         const rect = canvas.getBoundingClientRect();
-        const mouse_canvas_x = mousePosition.x * image.width / rect.width;
-        const mouse_canvas_y = mousePosition.y * image.height / rect.height;
+        const mouse_canvas_x = mousePosition.x * canvas.width / rect.width;
+        const mouse_canvas_y = mousePosition.y * canvas.height / rect.height;
         // 清除畫布
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         // 將canvas的原點移動到滑鼠的位置
