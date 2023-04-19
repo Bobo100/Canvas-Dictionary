@@ -7,7 +7,7 @@ interface ICopyToClipboard {
     children: string
 }
 
-export const CommonPrism = ({ children }: ICopyToClipboard) => {
+export const CopyToClipboard = ({ children }: ICopyToClipboard) => {
     const textInput = React.useRef<HTMLDivElement>(null)
     const [hovered, setHovered] = React.useState(false)
     const [copied, setCopied] = React.useState(false)
@@ -41,14 +41,13 @@ export const CommonPrism = ({ children }: ICopyToClipboard) => {
                 <button
                     aria-label="Copy code"
                     type="button"
-                    // className={clsx(
-                    //     'absolute right-2 top-2 w-8 h-8 p-1 rounded border-2 bg-gray-700 dark:bg-gray-800',
-                    //     {
-                    //         'focus:outline-none focus:border-green-400 border-green-400': copied,
-                    //         'hover:border-gray-300': !copied,
-                    //     }
-                    // )}
-                    className={`btn ${copied ? 'copied' : ''}`}
+                    className={clsx(
+                        'absolute right-2 top-2 w-8 h-8 p-1 rounded border-2 bg-gray-700 dark:bg-gray-800',
+                        {
+                            'focus:outline-none focus:border-green-400 border-green-400': copied,
+                            'hover:border-gray-300': !copied,
+                        }
+                    )}
                     onClick={onCopy}
                 >
                     <svg
